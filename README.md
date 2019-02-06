@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Development Process
+----------------------------------------------------------------
+1. Build api based project excluding minitest (we're using rspec)
 
-Things you may want to cover:
+   nestor@ubuntu-nestor:~/Documents$ rails new venmo-api --api -T
 
-* Ruby version
+2. Dependencies
 
-* System dependencies
+   rails-erd - Entity Relationships Diagram in Development  (to build pdf in root, just run "bundle exec erd", for this test It'll be already added to the project)
+   rspec-rails - Testing framework
+   factory_bot_rails - A fixtures replacement with a more straightforward syntax. You'll see.
+   shoulda_matchers - Provides RSpec with additional matchers.
+   database_cleaner - You guessed it! It literally cleans our test database to ensure a clean state in each test suite.
+   faker - A library for generating fake data. We'll use this to generate test data.
 
-* Configuration
+in Gemfile, then bundle install.
 
-* Database creation
+3. Install rspec
+   rails generate rspec:install
 
-* Database initialization
+4. Create scaffold User
+   nestor@ubuntu-nestor:~/Documents/venmo-api$ rails g scaffold User name email balance
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+5.
