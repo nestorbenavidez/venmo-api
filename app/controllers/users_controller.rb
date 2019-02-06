@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :balance, :feed]
 
   # GET /users
   def index
@@ -37,6 +37,19 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
   end
+
+  def payment
+
+  end
+
+  def feed
+
+  end
+
+  def balance
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
