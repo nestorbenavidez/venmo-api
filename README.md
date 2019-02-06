@@ -24,4 +24,7 @@ in Gemfile, then bundle install.
 
 6. Adding friendship to Users
    For this tasks I relied on the following gem 'has_friendship' ->  https://github.com/sungwoncho/has_friendship
-   added it to Gemfile and using friends_with?, friend_request and accept_request 
+   added it to Gemfile and using friends_with?, friend_request and accept_request
+
+7. Create seed data on seed.rb
+   For testing porpuses I'll create 5 users Natalia friend with Nestor and Maya, Ana friend with Miriam   
