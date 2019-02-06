@@ -6,7 +6,6 @@
 3. Prepare data rake db:create && rake db:migrate && rake db:seed
 4. Run over Webrick   
    rails s
-##Entity Relationship Diagram
 --------------------------------------------------------------------------------
 (https://github.com/nestorbenavidez/venmo-api/blob/master/erd.pdf)
 
