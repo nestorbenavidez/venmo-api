@@ -39,11 +39,8 @@ class UsersController < ApplicationController
   end
 
   def payment
-    friend_id = params[:friend_id]
-    amount = params[:amount]
-    description = params[:description]
-    if user.payment(friend_id,amount,description)
-      render json: User.where(id: friend_id).first
+    if Transaction.new.payment(user.id,params[:friend_id],params[:amount],params[:description])
+      render json: User.where(id: params[:friend_id]).first
     else
       render json: user.errors, status: :unprocessable_entity
     end
