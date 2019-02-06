@@ -1,5 +1,7 @@
-#Installation
-1. Clone this repository 
+##Installation
+--------------------------------------------------------------------------------
+
+1. Clone this repository
 2. Bundle install
 3. Prepare data
    rake db:create
@@ -9,8 +11,8 @@
    rails s
 
 
-#Development Process
-----------------------------------------------------------------
+##Development Process
+--------------------------------------------------------------------------------
 1. Build api based project excluding minitest (we're using rspec)
    rails new venmo-api --api -T
 
