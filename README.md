@@ -1,13 +1,9 @@
-# README
-
-#Development Process
+Development Process
 ----------------------------------------------------------------
 1. Build api based project excluding minitest (we're using rspec)
-
-   nestor@ubuntu-nestor:~/Documents$ rails new venmo-api --api -T
+   rails new venmo-api --api -T
 
 2. Dependencies
-
    rails-erd - Entity Relationships Diagram in Development  (to build pdf in root, just run "bundle exec erd", for this test It'll be already added to the project)
    rspec-rails - Testing framework
    factory_bot_rails - A fixtures replacement with a more straightforward syntax. You'll see.
@@ -21,6 +17,11 @@ in Gemfile, then bundle install.
    rails generate rspec:install
 
 4. Create scaffold User
-   nestor@ubuntu-nestor:~/Documents/venmo-api$ rails g scaffold User name email balance
+   rails g scaffold User name email balance:decimal
 
-5.
+5. Create model Transaction
+   rails g model Transaction description user_to:references user_from:references amount:decimal
+
+6. Adding friendship to Users
+   For this tasks I relied on the following gem 'has_friendship' ->  https://github.com/sungwoncho/has_friendship
+   added it to Gemfile and using friends_with?, friend_request and accept_request 
