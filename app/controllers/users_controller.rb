@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def feed
-    render json: Transaction.page(1)
+    render json: Payment.feed(user.id)#.page(1)
   end
 
   def balance
