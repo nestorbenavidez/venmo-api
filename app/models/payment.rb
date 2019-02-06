@@ -1,7 +1,7 @@
-class Transaction < ApplicationRecord
+class Payment < ApplicationRecord
   paginates_per 10
 
-  def payment(user_id, friend_id, amount, description = "NA")
+  def self.transfer_amount(user_id, friend_id, amount, description = "NA")
     ok_transaction = false
     ActiveRecord::Base.transaction do
       sender = User.where(id: user_id).first
@@ -10,7 +10,7 @@ class Transaction < ApplicationRecord
       friend.balance = friend.balance.to_f + amount.to_f
       friend.save!
       sender.save!
-      t = Transaction.create(user_to: friend_id, user_from: id, amount: amount, description: description)
+      Payment.create(user_to: friend_id, user_from: user_id, amount: amount, description: description)
       ok_transaction = true
     end
     ok_transaction

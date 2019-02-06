@@ -38,14 +38,6 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
-  def payment
-    if Transaction.new.payment(user.id,params[:friend_id],params[:amount],params[:description])
-      render json: User.where(id: params[:friend_id]).first
-    else
-      render json: user.errors, status: :unprocessable_entity
-    end
-  end
-
   def feed
     render json: Transaction.page(1)
   end
