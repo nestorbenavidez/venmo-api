@@ -1,4 +1,4 @@
-Development Process
+#Development Process
 ----------------------------------------------------------------
 1. Build api based project excluding minitest (we're using rspec)
    rails new venmo-api --api -T
@@ -33,8 +33,8 @@ in Gemfile, then bundle install
 
 8. Create methods payment, balance, feed inside UsersController
 
-9. Create method payment with validations inside User model
+9. Create method payment with validations inside Transaction model
 
 10. Testing first json responses with httpie
 
-11.
+11. Using pagination gem Kaminari, setup and install into Transactions
