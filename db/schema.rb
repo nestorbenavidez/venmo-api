@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_111628) do
+ActiveRecord::Schema.define(version: 2019_02_06_120517) do
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_to_id"
+    t.integer "user_from_id"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_from_id"], name: "index_transactions_on_user_from_id"
+    t.index ["user_to_id"], name: "index_transactions_on_user_to_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "balance"
+    t.decimal "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
