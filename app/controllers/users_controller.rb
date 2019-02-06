@@ -42,10 +42,10 @@ class UsersController < ApplicationController
     friend_id = params[:friend_id]
     amount = params[:amount]
     description = params[:description]
-    if @user.payment(friend_id,amount,description)
-      render json: @user
+    if user.payment(friend_id,amount,description)
+      render json: user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
@@ -54,11 +54,16 @@ class UsersController < ApplicationController
   end
 
   def balance
-
+    user.balance
   end
 
 
   private
+
+    def user
+      @user ||= User.find(params[:id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
