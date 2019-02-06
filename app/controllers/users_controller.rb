@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy, :balance, :feed]
+  before_action :set_user, only: [:show, :update, :destroy, :balance, :feed, :payment]
 
   # GET /users
   def index
@@ -39,7 +39,14 @@ class UsersController < ApplicationController
   end
 
   def payment
-
+    friend_id = params[:friend_id]
+    amount = params[:amount]
+    description = params[:description]
+    if @user.payment(friend_id,amount,description)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   def feed
@@ -59,6 +66,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :email, :balance)
+      params.require(:user).permit(:name, :email, :balance, :description, :friend_id, :amount)
     end
 end
