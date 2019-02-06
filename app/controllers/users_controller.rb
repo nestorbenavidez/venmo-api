@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def feed
-
+    Transaction.page(1)
   end
 
   def balance

@@ -9,8 +9,4 @@ class User < ApplicationRecord
     friend.save!
     t = Transaction.create(user_to: friend_id, user_from: id, amount: amount, description: description)
   end
-
-  def balance
-    balance
-  end
 end
