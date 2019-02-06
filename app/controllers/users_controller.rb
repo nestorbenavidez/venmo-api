@@ -50,11 +50,11 @@ class UsersController < ApplicationController
   end
 
   def feed
-    Transaction.page(1)
+    render json: Transaction.page(1)
   end
 
   def balance
-    user.balance
+    render json: user.balance
   end
 
 
