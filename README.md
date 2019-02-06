@@ -3,10 +3,7 @@
 
 1. Clone this repository
 2. Bundle install
-3. Prepare data
-   rake db:create
-   rake db:migrate
-   rake db:seed
+3. Prepare data rake db:create && rake db:migrate && rake db:seed
 4. Run over Webrick   
    rails s
 
