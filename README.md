@@ -55,4 +55,5 @@ in Gemfile, then bundle install
 note: there are some functionalities that I didn't include for lack of time on my part, I did have some issues the first day and play catch the second day, these include:
  * Some testing specs
  * Enable the MoneyTransferService
- * Creating the Account Model 
+ * Add friend items to feed (when is not related to the current user)
+ * Creating the Account Model
