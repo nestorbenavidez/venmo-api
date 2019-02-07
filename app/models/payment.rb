@@ -1,7 +1,11 @@
 class Payment < ApplicationRecord
   MIN_AMOUNT = 0
   MAX_AMOUNT = 1000
+
+  validate :amount_limits
   paginates_per 10
+
+
 
   def self.transfer_amount(user_id, friend_id, amount, description = "NA")
     ok_transaction = false
@@ -29,4 +33,16 @@ class Payment < ApplicationRecord
      end
      feed_items.to_json
    end
+
+   private
+
+   def amount_limits
+     if volume > MAX_AMOUNT
+       errors.add(:volume, “cannot be above 1000 USD”)
+     elsif volume < MIN_AMOUNT
+       errors.add(:volume, “cannot be below 0 USD”)
+     end
+   end
+
+
 end
