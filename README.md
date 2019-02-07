@@ -30,8 +30,8 @@ in Gemfile, then bundle install
 4. Create scaffold User
    rails g scaffold User name email balance:decimal
 
-5. Create model Transaction
-   rails g model Transaction description user_to:references user_from:references amount:decimal
+5. Create model Payment
+   rails g model Payment description user_to:references user_from:references amount:decimal
 
 6. Adding friendship to Users
    For this tasks I relied on the following gem 'has_friendship' ->  https://github.com/sungwoncho/has_friendship
@@ -44,11 +44,11 @@ in Gemfile, then bundle install
 
 8. Create methods payment, balance, feed inside UsersController
 
-9. Create method payment with validations inside Transaction model
+9. Create method payment with validations inside Payment model
 
 10. Testing first json responses with httpie
 
-11. Using pagination gem Kaminari, setup and install into Transactions
+11. Using pagination gem Kaminari, setup and install into Payment
 
 12. Add validations
 
