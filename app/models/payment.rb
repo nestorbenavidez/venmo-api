@@ -42,9 +42,9 @@ class Payment < ApplicationRecord
 
    def amount_limits
      if volume > MAX_AMOUNT
-       errors.add(:volume, “cannot be above 1000 USD”)
+       errors.add(:volume, "cannot be above 1000 USD")
      elsif volume < MIN_AMOUNT
-       errors.add(:volume, “cannot be below 0 USD”)
+       errors.add(:volume, "cannot be below 0 USD")
      end
    end
 
