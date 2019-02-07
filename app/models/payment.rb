@@ -5,8 +5,6 @@ class Payment < ApplicationRecord
   validate :amount_limits
   paginates_per 10
 
-@mac.friends_with?(@dee)
-
   def self.transfer_amount(user_id, friend_id, amount, description = "NA")
     ok_transaction = false
     if User.find(user_id).friends_with?(User.find(friend_id))
