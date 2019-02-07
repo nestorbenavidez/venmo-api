@@ -5,14 +5,16 @@ class Payment < ApplicationRecord
   validate :amount_limits
   paginates_per 10
 
-
+@mac.friends_with?(@dee)
 
   def self.transfer_amount(user_id, friend_id, amount, description = "NA")
     ok_transaction = false
-    ActiveRecord::Base.transaction do
-      recalculate_balance(user_id, friend_id, amount)
-      Payment.create(user_to: friend_id, user_from: user_id, amount: amount, description: description)
-      ok_transaction = true
+    if User.find(user_id).friends_with?(User.find(friend_id))
+      ActiveRecord::Base.transaction do
+        recalculate_balance(user_id, friend_id, amount)
+        Payment.create(user_to: friend_id, user_from: user_id, amount: amount, description: description)
+        ok_transaction = true
+      end
     end
     ok_transaction
   end
