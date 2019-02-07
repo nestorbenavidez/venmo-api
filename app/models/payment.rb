@@ -31,7 +31,9 @@ class Payment < ApplicationRecord
    def self.feed(user_id)
      feed_items = Array.new
      Payment.all.each do |item|
-       feed_items.unshift(User.find(item.user_from).name + " paid " + User.find(item.user_to).name + " on " + item.created_at.to_s)
+       if item.user_from == user_id || item.user_to == user_id
+         feed_items.unshift(User.find(item.user_from).name + " paid " + User.find(item.user_to).name + " on " + item.created_at.to_s)
+       end
      end
      feed_items.to_json
    end
