@@ -56,4 +56,4 @@ note: there are some functionalities that I didn't include for lack of time on m
  * Some testing specs
  * Enable the MoneyTransferService
  * Add friend items to feed (when is not related to the current user)
- * Creating the Account Model
+ * integrate the Account Model (the model was created with reference to user and balance)
